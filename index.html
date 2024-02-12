@@ -3,39 +3,235 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="fonts.css" />
     <title>My GitHub Pages Site</title>
+
     <style>
+      :root {
+        --base: #e5e5e5;
+        --contrast: #0b2b25;
+        --green: #1d6866;
+        --shade: #636363;
+
+        --text-large: 64px;
+        --text-smaller: 12px;
+      }
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
+        background-color: var(--base);
+        color: var(--contrast);
       }
       .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 0 20px;
+        max-width: 1280px;
+        margin: 32px auto;
+        padding: 0 32px;
       }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+      }
+
       h1 {
-        color: #007bff;
+        font-size: 32px;
       }
+
+      h2 {
+        font-size: 64px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      section {
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+
+      img {
+        width: 100%;
+      }
+
       p {
         line-height: 1.6;
+      }
+
+      .image-text {
+        position: relative;
+        padding-top: 24px;
+        padding-bottom: 32px;
+      }
+
+      .palanquin-dark-medium {
+        font-family: "Palanquin Dark", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: initial;
+        letter-spacing: -0.3px;
+      }
+
+      .yrsa-bold {
+        font-family: "Yrsa", serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+        line-height: initial;
+      }
+
+      .text {
+        color: var(--contrast);
+        padding-left: 24px;
+        margin-bottom: 24px;
+      }
+
+      .lms img {
+        max-width: 68%;
+      }
+
+      .plt-discovery .text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: fit-content;
+        top: 42%;
+      }
+
+      .plt-discovery.desk {
+        display: block;
+      }
+
+      .plt-discovery.mob {
+        display: none;
+      }
+
+      @media only screen and (max-width: 1279px) {
+        img {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .image-text {
+          position: relative;
+          padding-top: 16px;
+          padding-bottom: 12px;
+        }
+
+        .text {
+          padding-left: 0;
+          margin-bottom: 24px;
+        }
+
+        .lms img {
+          max-width: 100%;
+        }
+
+        .plt-discovery.desk {
+          display: none;
+        }
+
+        .plt-discovery.mob {
+          display: block;
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        section {
+          padding-top: 16px;
+          padding-bottom: 16px;
+        }
+        h2 {
+          font-size: 28px;
+        }
+
+        h3 {
+          font-size: 12px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Welcome to My GitHub Pages Site!</h1>
-      <p>
-        This is a simple example of an index.html file for a GitHub Pages site.
-      </p>
-      <p>
-        You can edit this file directly in your repository and GitHub Pages will
-        automatically update your site.
-      </p>
-      <p>Happy coding!</p>
-    </div>
+    <header>
+      <div class="container">
+        <h1 class="yrsa-bold">Recent works</h1>
+        <h4
+          class="palanquin-dark-medium"
+          style="font-size: var(--text-smaller)"
+        >
+          Quick overview of the recent designs
+        </h4>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <!-- LMS -->
+        <section class="lms">
+          <div class="image-text">
+            <div class="text">
+              <h2 class="yrsa-bold">Learning management system</h2>
+              <h3 class="palanquin-dark-medium" style="font-weight: 400">
+                Research process aimed to find the best exprience solutions
+                carefully leveraging around technical constrains
+              </h3>
+            </div>
+            <img src="lms.webp" alt="" title="" />
+          </div>
+        </section>
+
+        <!-- E-commerce -->
+        <section>
+          <div class="ecm image-text">
+            <div class="text">
+              <h2 class="yrsa-bold">E-commerce overview...</h2>
+              <h3 class="palanquin-dark-medium">
+                IPhone 13 mini / IPad mini 8.3 / MacOS
+              </h3>
+            </div>
+
+            <img src="ecm_experience_mob.webp" alt="" title="" />
+          </div>
+
+          <div class="ecm-checkout image-text">
+            <img src="checkout.webp" alt="" title="" />
+          </div>
+        </section>
+
+        <!--Nicht -->
+        <section>
+          <div class="sa image-text">
+            <div class="text">
+              <h2 class="yrsa-bold">Social activities</h2>
+              <h3 class="palanquin-dark-medium">
+                Clickable prototype of an intuitive e-commerce UX solutions
+              </h3>
+            </div>
+            <img src="soc_act.webp" alt="" title="" />
+          </div>
+
+          <div class="plt-discovery image-text desk">
+            <div class="text">
+              <h2 class="yrsa-bold" style="color: var(--base)">
+                Palette discovery
+              </h2>
+              <h3 class="palanquin-dark-medium" style="color: var(--base)">
+                The process of playing with various palettes to fit the product
+                meaning
+              </h3>
+            </div>
+
+            <img src="palette_discovery_1x.webp" alt="" title="" />
+          </div>
+
+          <div class="plt-discovery image-text mob">
+            <img src="palette_discovery_1x.webp" alt="" title="" />
+          </div>
+        </section>
+      </div>
+    </main>
   </body>
 </html>
