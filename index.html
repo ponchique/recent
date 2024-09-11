@@ -6,6 +6,11 @@
     <link rel="icon" type="image/x-icon" href="fav.png" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="fonts.css" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
     <title>Nastacy Norenko | Recent design works</title>
 
@@ -56,28 +61,24 @@
       section {
         padding-top: 32px;
         padding-bottom: 32px;
-        opacity: 0; /* Initially hide the section */
-        transform: translateY(50px); /* Slight slide-up effect */
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-
-      section.visible {
-        opacity: 1; /* Make the section visible */
-        transform: translateY(0); /* Reset the slide-up */
       }
 
       img {
         width: 100%;
       }
 
-      p {
-        line-height: 1.6;
-      }
-
       .image-text {
-        position: relative;
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
         padding-top: 24px;
         padding-bottom: 32px;
+      }
+
+      .text-button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
       }
 
       .palanquin-dark-medium {
@@ -98,66 +99,54 @@
 
       .text {
         color: var(--contrast);
-        padding-left: 24px;
         margin-bottom: 24px;
       }
 
-      .lms img {
-        max-width: 68%;
+      /* Button Styling */
+      .view-case-button {
+        font-family: "Yrsa", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--contrast);
+        background-color: transparent;
+        border: 2px solid var(--contrast);
+        border-radius: 50px;
+        padding: 12px 24px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      .tdc img {
-        max-width: 90%;
+      .view-case-button:hover {
+        background-color: var(--contrast);
+        color: var(--base);
       }
 
-      .plt-discovery .text {
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: fit-content;
-        top: 42%;
-      }
-
-      .plt-discovery.desk {
-        display: block;
-      }
-
-      .plt-discovery.mob {
-        display: none;
-      }
-
+      /* Responsive adjustments */
       @media only screen and (max-width: 1279px) {
+        .image-text {
+          padding-top: 16px;
+          padding-bottom: 12px;
+        }
+
+        .text-button-container {
+          flex-direction: column; /* Stack title and button on small screens */
+          align-items: flex-start;
+        }
+
+        .view-case-button {
+          margin-top: 16px;
+          width: 100%;
+        }
+
         img {
           max-width: 100%;
           width: 100%;
         }
 
-        .image-text {
-          position: relative;
-          padding-top: 16px;
-          padding-bottom: 12px;
-        }
-
-        .text {
-          padding-left: 0;
-          margin-bottom: 24px;
-        }
-
-        .lms img {
-          max-width: 100%;
-        }
-
+        .lms img,
         .tdc img {
           max-width: 100%;
-        }
-
-        .plt-discovery.desk {
-          display: none;
-        }
-
-        .plt-discovery.mob {
-          display: block;
         }
       }
 
@@ -173,6 +162,10 @@
 
         h3 {
           font-size: 12px;
+        }
+
+        .view-case-button {
+          font-size: 14px;
         }
       }
     </style>
@@ -194,11 +187,16 @@
         <!-- Construction Todo Chat-->
         <section class="tdc">
           <div class="image-text">
-            <div class="text">
-              <h2 class="yrsa-bold">Learn Clarify Build</h2>
-              <h3 class="palanquin-dark-medium" style="font-weight: 400">
-                Comprehensive system for tracking tasks at construction site.
-              </h3>
+            <div class="text-button-container">
+              <div class="text">
+                <h2 class="yrsa-bold">Learn Clarify Build</h2>
+                <h3 class="palanquin-dark-medium" style="font-weight: 400">
+                  Comprehensive system for tracking tasks at construction site.
+                </h3>
+              </div>
+              <button class="view-case-button">
+                Explore Case Study <i class="fas fa-arrow-up-right"></i>
+              </button>
             </div>
             <img
               src="skewed_plenty_mobile_screens-dark.webp"
@@ -211,12 +209,17 @@
         <!-- LMS -->
         <section class="lms">
           <div class="image-text">
-            <div class="text">
-              <h2 class="yrsa-bold">Learning management system</h2>
-              <h3 class="palanquin-dark-medium" style="font-weight: 400">
-                Crafting optimal experiences within technical constraints
-                through meticulous research.
-              </h3>
+            <div class="text-button-container">
+              <div class="text">
+                <h2 class="yrsa-bold">Learning management system</h2>
+                <h3 class="palanquin-dark-medium" style="font-weight: 400">
+                  Crafting optimal experiences within technical constraints
+                  through meticulous research.
+                </h3>
+              </div>
+              <button class="view-case-button">
+                Explore Case Study <i class="fas fa-arrow-up-right"></i>
+              </button>
             </div>
             <img
               src="lms.webp"
@@ -229,11 +232,16 @@
         <!-- E-commerce -->
         <section>
           <div class="ecm image-text">
-            <div class="text">
-              <h2 class="yrsa-bold">E-commerce overview</h2>
-              <h3 class="palanquin-dark-medium">
-                IPhone 13 mini / IPad mini 8.3 / MacOS
-              </h3>
+            <div class="text-button-container">
+              <div class="text">
+                <h2 class="yrsa-bold">E-commerce overview</h2>
+                <h3 class="palanquin-dark-medium">
+                  IPhone 13 mini / IPad mini 8.3 / MacOS
+                </h3>
+              </div>
+              <button class="view-case-button">
+                Explore Case Study <i class="fas fa-arrow-up-right"></i>
+              </button>
             </div>
             <img
               src="ecm_experience_mob.webp"
@@ -244,30 +252,42 @@
         </section>
 
         <!-- Social Activities -->
-        <section class="sa image-text">
-          <div class="text">
-            <h2 class="yrsa-bold">Social activities</h2>
-            <h3 class="palanquin-dark-medium">
-              Comfortable reading experience focused on minimalist style.
-            </h3>
+        <section>
+          <div class="sa image-text">
+            <div class="text-button-container">
+              <div class="text">
+                <h2 class="yrsa-bold">Social activities</h2>
+                <h3 class="palanquin-dark-medium">
+                  Comfortable reading experience focused on minimalist style.
+                </h3>
+              </div>
+              <button class="view-case-button">
+                Explore Case Study <i class="fas fa-arrow-up-right"></i>
+              </button>
+            </div>
+            <img
+              src="soc_act.webp"
+              alt="Social activities blog"
+              title="Social activities blog"
+            />
           </div>
-          <img
-            src="soc_act.webp"
-            alt="Social activities blog"
-            title="Social activities blog"
-          />
         </section>
 
         <!-- Palette Discovery -->
         <section>
           <div class="plt-discovery image-text desk">
-            <div class="text">
-              <h2 class="yrsa-bold" style="color: var(--base)">
-                Palette discovery
-              </h2>
-              <h3 class="palanquin-dark-medium" style="color: var(--base)">
-                Exploring colors to capture the project's essence.
-              </h3>
+            <div class="text-button-container">
+              <div class="text">
+                <h2 class="yrsa-bold" style="color: var(--base)">
+                  Palette discovery
+                </h2>
+                <h3 class="palanquin-dark-medium" style="color: var(--base)">
+                  Exploring colors to capture the project's essence.
+                </h3>
+              </div>
+              <button class="view-case-button">
+                Explore Case Study <i class="fas fa-arrow-up-right"></i>
+              </button>
             </div>
             <img
               src="palette_discovery.webp"
@@ -278,34 +298,5 @@
         </section>
       </div>
     </main>
-
-    <script>
-      // Select all the section elements you want to observe
-      const sections = document.querySelectorAll("section");
-
-      // Options for the IntersectionObserver
-      const options = {
-        root: null, // Use the viewport
-        threshold: 0.2, // Trigger when 20% of the section is visible
-      };
-
-      // Callback function for the observer
-      const observerCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible"); // Add visible class when the section enters the viewport
-            observer.unobserve(entry.target); // Stop observing once the element is visible
-          }
-        });
-      };
-
-      // Create a new IntersectionObserver instance
-      const observer = new IntersectionObserver(observerCallback, options);
-
-      // Observe each section
-      sections.forEach((section) => {
-        observer.observe(section);
-      });
-    </script>
   </body>
 </html>
