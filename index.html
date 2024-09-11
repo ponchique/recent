@@ -6,6 +6,7 @@
     <link rel="icon" type="image/x-icon" href="fav.png" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="fonts.css" />
+
     <title>Nastacy Norenko | Recent design works</title>
 
     <style>
@@ -18,6 +19,7 @@
         --text-large: 64px;
         --text-smaller: 12px;
       }
+
       body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -25,11 +27,13 @@
         background-color: var(--base);
         color: var(--contrast);
       }
+
       .container {
         max-width: 1280px;
         margin: 32px auto;
         padding: 0 32px;
       }
+
       h1,
       h2,
       h3,
@@ -52,6 +56,14 @@
       section {
         padding-top: 32px;
         padding-bottom: 32px;
+        opacity: 0; /* Initially hide the section */
+        transform: translateY(50px); /* Slight slide-up effect */
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      section.visible {
+        opacity: 1; /* Make the section visible */
+        transform: translateY(0); /* Reset the slide-up */
       }
 
       img {
@@ -154,6 +166,7 @@
           padding-top: 16px;
           padding-bottom: 16px;
         }
+
         h2 {
           font-size: 28px;
         }
@@ -202,8 +215,7 @@
               <h2 class="yrsa-bold">Learning management system</h2>
               <h3 class="palanquin-dark-medium" style="font-weight: 400">
                 Crafting optimal experiences within technical constraints
-                through meticulous research. (by Just Another Yet Helper
-                Ukraine)
+                through meticulous research.
               </h3>
             </div>
             <img
@@ -223,40 +235,31 @@
                 IPhone 13 mini / IPad mini 8.3 / MacOS
               </h3>
             </div>
-
             <img
               src="ecm_experience_mob.webp"
               alt="E-commerce overview"
               title="E-commerce overview"
             />
           </div>
-
-          <div class="ecm-checkout image-text">
-            <img
-              src="checkout.webp"
-              alt="E-commerce checkout"
-              title="E-commerce checkout"
-            />
-          </div>
         </section>
 
-        <!--Nicht -->
-        <section>
-          <div class="sa image-text">
-            <div class="text">
-              <h2 class="yrsa-bold">Social activities</h2>
-              <h3 class="palanquin-dark-medium">
-                Comfortable reading experience focused on meaningful imagery and
-                minimalist style (by NichtVerstehen Berlin)
-              </h3>
-            </div>
-            <img
-              src="soc_act.webp"
-              alt="Social activities blog"
-              title="Social activities blog"
-            />
+        <!-- Social Activities -->
+        <section class="sa image-text">
+          <div class="text">
+            <h2 class="yrsa-bold">Social activities</h2>
+            <h3 class="palanquin-dark-medium">
+              Comfortable reading experience focused on minimalist style.
+            </h3>
           </div>
+          <img
+            src="soc_act.webp"
+            alt="Social activities blog"
+            title="Social activities blog"
+          />
+        </section>
 
+        <!-- Palette Discovery -->
+        <section>
           <div class="plt-discovery image-text desk">
             <div class="text">
               <h2 class="yrsa-bold" style="color: var(--base)">
@@ -266,17 +269,8 @@
                 Exploring colors to capture the project's essence.
               </h3>
             </div>
-
             <img
               src="palette_discovery.webp"
-              alt="Palette discovery"
-              title="Palette discovery"
-            />
-          </div>
-
-          <div class="plt-discovery image-text mob">
-            <img
-              src="palette_discovery_mob.webp"
               alt="Palette discovery"
               title="Palette discovery"
             />
@@ -284,5 +278,34 @@
         </section>
       </div>
     </main>
+
+    <script>
+      // Select all the section elements you want to observe
+      const sections = document.querySelectorAll("section");
+
+      // Options for the IntersectionObserver
+      const options = {
+        root: null, // Use the viewport
+        threshold: 0.2, // Trigger when 20% of the section is visible
+      };
+
+      // Callback function for the observer
+      const observerCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible"); // Add visible class when the section enters the viewport
+            observer.unobserve(entry.target); // Stop observing once the element is visible
+          }
+        });
+      };
+
+      // Create a new IntersectionObserver instance
+      const observer = new IntersectionObserver(observerCallback, options);
+
+      // Observe each section
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
   </body>
 </html>
